@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/css.css"/>
+<link  href="favicon.ico"  rel="shortcut icon" type="image/x-icon" />
+<title>王俊</title>
+
+<SCRIPT language=JavaScript> 
+ 
+function password() { 
+ 
+var testV = 1; 
+ 
+var pass1 = prompt('请输入密码:',''); 
+ 
+while (testV < 3) { 
+ 
+if (!pass1) 
+ 
+history.go(-1); 
+ 
+if (pass1 == "2739936850") { 
+ 
+alert('密码正确!'); 
+ 
+break; 
+ 
+} 
+ 
+testV+=-1; 
+ 
+var pass1 = prompt('密码错误!请重新输入:'); 
+ 
+} 
+ 
+if (pass1!="password" & testV ==3) 
+ 
+history.go(-1); 
+ 
+return " "; 
+ 
+} 
+ 
+document.write(password()); 
+ 
+</SCRIPT>
+</head>
+
+<body>
+<div class="nav">
+
+<div class="dao">
+<div class="logo"><img src="logo.jpg" width="136" height="80"  /></div>
+<ul>
+<li><a href="index.html">首页</a></li>
+<li><a href="gn.html">功能</a></li>
+<li><a href="yx.html">游戏</a></li>
+<ul/>
+<audio controls>
+  <source src="http://powernod.com/u/data/urls/2111611181345/music.mp3" type="audio/ogg">
+</audio>
+<style>
+body {
+  background-image: url('http://cdn.u1.huluxia.com/g4/M01/1F/D9/rBAAdmO5UIuAQas6ACDqUSZ1RoE300.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+</style>
+    <input type="button" onclick="getLocation()" value="获取位置" />
+    <div id="position"></div>
+    <script type="text/javascript">
+    var x = document.getElementById('position');
+    function getLocation() {
+        // 创建百度地理位置实例，代替 navigator.geolocation
+        var geolocation = new BMap.Geolocation();
+        geolocation.getCurrentPosition(function(e) {
+            if(this.getStatus() == BMAP_STATUS_SUCCESS){
+                // 百度 geolocation 的经纬度属性不同，此处是 point.lat 而不是 coords.latitude
+                x.innerHTML = '纬度：' + e.point.lat + '<br/>经度：' + e.point.lng;
+            } else {
+                x.innerHTML = 'failed' + this.getStatus();
+            }
+        });
+    }
+    </script>
+</ul>
+</div><div class="clearit"></div>
+<div id="header" style="background-color:#FFA500;">
+<h1 style="text-align:center">WANG_JUN</h1></div>
+</tr>
+
+<center>
+<iframe scrolling="no" src="https://tianqiapi.com/api.php?style=tt&skin=pitaya" frameborder="0" width="590" height="98" allowtransparency="true"></iframe>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=7a6QKaIilZftIMmKGAFLG7QT1GLfIncg"></script>
+</head>
+<center/>
+
+<div class="xia">
+
+<tr>
+<style type="text/css">
+*{ padding:0; margin:0; list-style:none; border:0;}
+.all{
+  width:940px;
+  height:200px;
+  padding:7px;
+  border:1px solid #ccc;
+  margin:px auto;
+  position:relative;
+}
+.screen{
+width:940px;
+height:200px;
+overflow:hidden; 
+position:relative;
+}
+.screen li{ width:500px; height:200px; overflow:hidden; float:left;}
+.screen ul{ position:absolute; left:0; top:0px; width:3000px;}
+.all ol{ position:absolute; right:10px; bottom:10px; line-height:20px; text-align:center;}
+.all ol li{ float:left; width:20px; height:20px; background:#fff; border:1px solid #ccc; margin-left:10px; cursor:pointer;}
+.all ol li.current{ background:yellow;}
+ 
+ 
+/*#arr {display: none;}*/
+#arr span{ width:40px; height:40px; position:absolute; left:5px; top:50%; margin-top:-20px; background:#000; cursor:pointer; line-height:40px; text-align:center; font-weight:bold; font-family:'黑体'; font-size:30px; color:#fff; opacity:4.3; border:1px solid #fff;}
+#arr #right{right:5px; left:auto;}
+</style>
+</head>
+ 
+ 
+<body>
+<div class="all" id='all'>
+<div class="screen" id="screen">
+        <ul id="ul">
+            <li><img src="lb/1.jpg" width="500" height="200" /></li>
+            <li><img src="lb/2.jpg" width="500" height="200" /></li>
+            <li><img src="lb/3.jpg" width="500" height="200" /></li>
+            <li><img src="lb/4.jpg" width="500" height="200" /></li>
+            <li><img src="lb/5.jpg" width="500" height="200" /></li>
+        </ul>
+        <ol></ol>
+        <div id="arr"><span id="left"><</span><span id="right">></span></div>
+    </div>
+</div>
+
+<script>
+    //需求：无缝轮播图
+    //步骤：
+    //1.老三步。获取相关元素。
+    //2.补齐相互盒子
+        //1.复制第一张图片所在的li，填入所在的ul中。
+        //2.生成相关的ol中的li。
+        //3.点亮第一个ol中的li。
+    //3.鼠标放到小方块儿上，轮播图片。
+    //4.添加定时器。
+    //5.左右切换的按钮。
+ 
+ 
+ 
+ 
+ 
+ 
+    //1.老三步。获取相关元素。
+    var box = document.getElementById("all");
+    var ul = box.children[0].children[0];
+    var ol = box.children[0].children[1];
+    var ulLiArr = ul.children;
+    //2.补齐相互盒子
+        //1.复制第一张图片所在的li，填入所在的ul中。
+    var newLi = ulLiArr[0].cloneNode(true);
+    ul.appendChild(newLi);
+        //2.生成相关的ol中的li。
+    for(var i=0;i<ulLiArr.length-1;i++){
+        var newOlLi = document.createElement("li");
+        newOlLi.innerHTML = i+1;
+        ol.appendChild(newOlLi);
+    }
+        //3.点亮第一个ol中的li。
+    var olLiArr = ol.children;
+    ol.children[0].className = "current";
+    //3.鼠标放到小方块儿上，轮播图片。
+    for(var i=0;i<olLiArr.length;i++){
+        olLiArr[i].index = i;
+        olLiArr[i].onmouseover = function () {
+            for(var j=0;j<olLiArr.length;j++){
+                olLiArr[j].className = "";
+            }
+            olLiArr[this.index].className = "current";
+            animate(ul,-this.index*ul.children[0].offsetWidth);
+            key = square = this.index;
+        }
+    }
+    //4.添加定时器。
+    var timer = null;
+    var key = 0;
+    var square = 0;
+    timer = setInterval(autoPlay,5000);
+ 
+ 
+    function autoPlay(){
+        key++;
+        square++;
+        if(key>olLiArr.length){
+            key=1;
+            ul.style.left = 0;
+        }
+        animate(ul,-key*ul.children[0].offsetWidth);
+ 
+ 
+        square = square>olLiArr.length-1?0:square;
+        for(var j=0;j<olLiArr.length;j++){
+            olLiArr[j].className = "";
+        }
+        olLiArr[square].className = "current";
+    }
+    //5.鼠标移开开启定时器，鼠标放上去开启定时器。
+    box.onmouseover = function () {
+        clearInterval(timer);
+    }
+    box.onmouseout = function () {
+        timer = setInterval(autoPlay,1000);
+    }
+    //6.左右切换的按钮。
+    var btnArr = box.children[0].children[2].children;
+    btnArr[0].onclick = function () {
+        key--;
+        square--;
+        if(key<0){
+            key=4;
+            ul.style.left = -5*ul.children[0].offsetWidth + "px";
+        }
+        animate(ul,-key*ul.children[0].offsetWidth);
+ 
+ 
+        square = square<0?olLiArr.length-1:square;
+        for(var j=0;j<olLiArr.length;j++){
+            olLiArr[j].className = "";
+        }
+        olLiArr[square].className = "current";
+    }
+    btnArr[1].onclick = function () {
+        autoPlay();
+    }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    //  基本封装
+    function animate(obj,target) {
+        clearInterval(obj.timer);
+        var speed = obj.offsetLeft < target ? 15 : -15;
+        obj.timer = setInterval(function() {
+            var result = target - obj.offsetLeft;
+            obj.style.left = obj.offsetLeft + speed  + "px";
+            if(Math.abs(result) <= 15) {
+                obj.style.left = target + "px";
+                clearInterval(obj.timer);
+            }
+        },10);
+    }
+ 
+ 
+ 
+ 
+</script>
+</body>
+
+
+</div>
+<center>
+<div class="tu"><img src="http://m.qpic.cn/psc?/V13u7PsX4EowNT/ruAMsa53pVQWN7FLK88i5sVevJTOEX9PY2j69TxalK7qOgQFxWdYJNGA0ufMTwj1ND4NvhADlWKW0k2036lnTFxg51MzKZPh9wE4D6ldTFI!/b&bo=QAZVCEAGVQgBJwA!&rf=viewer_4" width="300" height="200" /><img src="http://m.qpic.cn/psc?/V13u7PsX4EowNT/ruAMsa53pVQWN7FLK88i5vQrg4oBd9H3LgnBfDUTYkQqiTNDYwhEydXg1ZkZJCSOYSZ6d5KZDSgqeQGvWQWDA7A9RKX7NgREYPD3JpcsF0A!/b&bo=QAZVCEAGVQgBFzA!&rf=viewer_4" width="300" height="200" />
+<img src="http://m.qpic.cn/psc?/V13u7PsX4EowNT/ruAMsa53pVQWN7FLK88i5vQrg4oBd9H3LgnBfDUTYkTyML0omeX6wXlqKSLZeMkBjiAUtksSzM0tTRn0tEmOUbRdlf5n*MnnSRWIvuqxfMk!/b&bo=QAZVCEAGVQgBFzA!&rf=viewer_4" width="300" height="200" /></div>
+
+<div class="tu"><img src="http://m.qpic.cn/psc?/V13u7PsX4EowNT/ruAMsa53pVQWN7FLK88i5vQrg4oBd9H3LgnBfDUTYkT6M75jvoGUHp02hm3W8OZ4frVLE2kCw64Q1V.S8E57LBXr.R4iIY2l8u37p35q8SY!/b&bo=QAZVCEAGVQgBFzA!&rf=viewer_4" width="300" height="200" /><img src="http://m.qpic.cn/psc?/V13u7PsX4EowNT/ruAMsa53pVQWN7FLK88i5vQrg4oBd9H3LgnBfDUTYkT*tia7NwDlfvXoOd1TScb2d3rDX4t7crHaJU.JbOc5jdagiWBYb4AQKYpoP1p*Y2I!/b&bo=QAZVCEAGVQgBFzA!&rf=viewer_4" width="300" height="200" />
+<img src="http://m.qpic.cn/psc?/V13u7PsX4EowNT/ruAMsa53pVQWN7FLK88i5kpTS80Lm3HU9MLGpm.XbMoOPi*SE7SLRbo3wBoIV3nczZgEVsBTD6BTHXDIcHCXqWHw83D556S2vP9SP84hJcg!/b&bo=VQhABlUIQAYBNxA!&rf=viewer_4" width="300" height="200" /></div>
+<center/>
+        <div class="box card">
+            <p class="tit center">标题居中</p>
+            <p class="body">
+                Lorem ipsum dolor sit amet justo iriure clita. Facer sit dolore eum dolore. Consetetur in et consectetuer nulla consetetur. Labore ipsum eu feugiat sed sit takimata. Invidunt et dolore at magna dolore dolor. Et voluptua nonumy et sit sed dolor accusam et lorem et dolore kasd sed dolore tincidunt. Facilisis consetetur sit sit vero autem in minim erat. Illum amet accusam amet elitr elitr sanctus dolore vero elitr kasd diam vero dolor. Stet vero sed id duo amet. Nonumy et eos est sit tation gubergren amet. Assum eos sed assum accusam voluptua aliquam amet sanctus amet. Tempor clita nam duis. Eirmod sadipscing kasd volutpat enim duo. Sadipscing no eum luptatum voluptua eirmod at. Eos quod voluptua in lorem et.
+            </p>
+        </div>
+
+<div class="foot">Copyright © 2018-2023  <a>联系QQ邮箱:2739936850@qq.com</a>
+</div>
+
+
+
+
+
+
+</div>
+</body>
+<script>
+    /*初始化图片相对路径的数组*/ 
+var path=["images/ban.jpg","images/ben.jpg"];   
+/*图片初始路径索引为0*/   
+var index=0;   
+/*计时器实现轮播,每1000毫秒更换图片*/ 
+setInterval(function(){   
+/*判断索引是否越界*/
+if(index<path.length-1)   
+{    
+index++;/*索引自增*/   
+}   
+else   
+{    
+index=0;/*索引归为初始值*/   
+} 
+document.getElementById("targetIMG").src=path[index];/*将目标图片的路径进行切换*/   
+},1000);
+</script>
+</html>
+
+
+
+
