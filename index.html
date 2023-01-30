@@ -12,7 +12,7 @@ function password() {
  
 var testV = 1; 
  
-var pass1 = prompt('请输入密码:',''); 
+var pass1 = prompt('请输入访问口令:',''); 
  
 while (testV < 3) { 
  
@@ -22,7 +22,7 @@ history.go(-1);
  
 if (pass1 == "2739936850") { 
  
-alert('密码正确!'); 
+alert('口令正确!'); 
  
 break; 
  
@@ -30,7 +30,7 @@ break;
  
 testV+=-1; 
  
-var pass1 = prompt('密码错误!请重新输入:'); 
+var pass1 = prompt('口令错误!请重新输入:'); 
  
 } 
  
@@ -58,7 +58,7 @@ document.write(password());
 <li><a href="yx.html">游戏</a></li>
 <ul/>
 <audio controls>
-  <source src="http://powernod.com/u/data/urls/2111611181345/music.mp3" type="audio/ogg">
+  <source src="http://ws.stream.qqmusic.qq.com/C400003WMqQb2S3AaC.m4a?guid=972524047&vkey=7CC08FE30E41F77B1FF7FF4BF635976FB5E50939EC1697F936BA7C02CFCAC2C8C37D60A6BEE1F48C09D1E0FE1A0CAB9F2288608250903A93&uin=&fromtag=120032" type="audio/ogg">
 </audio>
 <style>
 body {
@@ -115,7 +115,7 @@ body {
 </head>
 <center/>
 
-<div class="box">
+<div class="box0">
 
         <!-- 左右两个点击按钮 -->
 
@@ -166,8 +166,8 @@ body {
 
  
 
-        .box {
-            width: 980px;
+        .box0 {
+            width: 960px;
 
             height: 280px;
 
@@ -208,7 +208,7 @@ body {
  
 
         .imgList li img {
-            width: 980px;
+            width: 960px;
 
             height: 280px;
 
@@ -258,7 +258,7 @@ body {
 
             cursor: pointer;
 
-            background-clip: content-box;
+            background-clip: content-box0;
 
             border: 1px solid rgba(255, 255, 255, 0.5);
 
@@ -350,15 +350,15 @@ body {
 
         var rightBtn = document.querySelector('.rightBtn'); //右按钮
 
-        var box = document.querySelector('.box'); //最大的盒子
+        var box0 = document.querySelector('.box0'); //最大的盒子
 
-        var boxWidth = box.offsetWidth; //盒子宽=图片宽度
+        var box0Width = box0.offsetWidth; //盒子宽=图片宽度
 
         //1-鼠标落在div上显示左右按钮
 
         //mouseenter事件为鼠标经过大盒子时显示左右两个按钮
 
-        box.addEventListener('mouseenter', function () {
+        box0.addEventListener('mouseenter', function () {
             leftBtn.style.display = 'block';
 
             rightBtn.style.display = 'block';
@@ -373,7 +373,7 @@ body {
 
         //mouseleave事件为鼠标离开左右两个按钮隐藏
 
-        box.addEventListener('mouseleave', function () {
+        box0.addEventListener('mouseleave', function () {
             leftBtn.style.display = 'none';
 
             rightBtn.style.display = 'none';
@@ -387,9 +387,9 @@ body {
 
         //3-动态获取图片张数来展示小球个数
 
-        var ul = box.querySelector('ul'); //获取大盒子box里的ul标签
+        var ul = box0.querySelector('ul'); //获取大盒子box0里的ul标签
 
-        var ol = box.querySelector('.circle') //获取大盒子box里的ol标签
+        var ol = box0.querySelector('.circle') //获取大盒子box0里的ol标签
 
         //for循环根据图片创建小球个数
 
@@ -444,7 +444,7 @@ body {
 
                 //调用动画函数
 
-                animate(ul, -index * boxWidth)
+                animate(ul, -index * box0Width)
 
             })
 
@@ -486,7 +486,7 @@ body {
 
             num++;
 
-            animate(ul, -num * boxWidth);
+            animate(ul, -num * box0Width);
 
             circle++;
 
@@ -515,7 +515,7 @@ body {
             if (num == 0) {
                 num = ul.children.length - 1;
 
-                ul.style.left = -num * boxWidth + 'px';
+                ul.style.left = -num * box0Width + 'px';
 
  
 
@@ -523,7 +523,7 @@ body {
 
             num--;
 
-            animate(ul, -num * boxWidth);
+            animate(ul, -num * box0Width);
 
             circle--;
 
@@ -618,25 +618,34 @@ body {
     </script>
 
 <center>
-<div class="tu"><img src="img/1.jpg" width="300" height="200" /><img src="img/2.jpg" width="300" height="200" />
-<img src="img/3.jpg" width="300" height="200" /></div>
+<div class="tu"><img src="https://thumbnail1.baidupcs.com/thumbnail/086592f4cpec7cb6d35923aff60873e0?fid=3837602995-250528-487690858032712&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-mjU1546QRbkN0G3hQ9GhfFP2bAA%3d&expires=8h&chkbd=0&chkv=0&dp-logid=8753326925156123317&dp-callid=0&time=1675044000&size=c1440_u900&quality=90&vuk=3837602995&ft=image&autopolicy=1" width="300" height="200" /><img src="https://thumbnail1.baidupcs.com/thumbnail/d1469878agcd843e865469466fc2b020?fid=3837602995-250528-317303016076091&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-7GIZJEl3qenTsIendX3BVPPPXNc%3d&expires=8h&chkbd=0&chkv=0&dp-logid=8753326925156123317&dp-callid=0&time=1675044000&size=c1440_u900&quality=90&vuk=3837602995&ft=image&autopolicy=1" width="300" height="200" />
+<img src="https://thumbnail1.baidupcs.com/thumbnail/bed7f4d19hf80ff141a4a62d8dc8c3cc?fid=3837602995-250528-316436013230324&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-4xu5lfDPxnAtH%2b8RQJZUOxneNdE%3d&expires=8h&chkbd=0&chkv=0&dp-logid=8753326925156123317&dp-callid=0&time=1675044000&size=c1440_u900&quality=90&vuk=3837602995&ft=image&autopolicy=1" width="300" height="200" /></div>
 
-<div class="tu"><img src="img/4.jpg" width="300" height="200" /><img src="img/5.jpg" width="300" height="200" />
-<img src="img/6.jpg" width="300" height="200" /></div>
+<div class="tu"><img src="https://thumbnail1.baidupcs.com/thumbnail/e3b74fe67h31ecb904751436b0f39060?fid=3837602995-250528-521028879434579&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-HN6Vmj46U8PsP1ZCWIUbsiaG5z0%3d&expires=8h&chkbd=0&chkv=0&dp-logid=8753326925156123317&dp-callid=0&time=1675044000&size=c1440_u900&quality=90&vuk=3837602995&ft=image&autopolicy=1" width="300" height="200" /><img src="https://thumbnail1.baidupcs.com/thumbnail/cc8bc89e6jf8b9ff5346cc398793ecc5?fid=3837602995-250528-1091761906819159&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-izolow9PEGW6JoL4jTHbr8kEBdM%3d&expires=8h&chkbd=0&chkv=0&dp-logid=8753326925156123317&dp-callid=0&time=1675044000&size=c1440_u900&quality=90&vuk=3837602995&ft=image&autopolicy=1" width="300" height="200" />
+<img src="https://thumbnail1.baidupcs.com/thumbnail/fb826d50bj3ce602810d9b1bce314026?fid=3837602995-250528-1091321619851362&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-Ydz%2b7WNiZJ65M2xL6r33zPu5U44%3d&expires=8h&chkbd=0&chkv=0&dp-logid=8753326925156123317&dp-callid=0&time=1675044000&size=c1440_u900&quality=90&vuk=3837602995&ft=image&autopolicy=1" width="300" height="200" /></div>
 <center/>
         <div class="box card">
-            <p class="tit center">标题居中</p>
+            <p class="tit center">真</p>
             <p class="body">
-                Lorem ipsum dolor sit amet justo iriure clita. Facer sit dolore eum dolore. Consetetur in et consectetuer nulla consetetur. Labore ipsum eu feugiat sed sit takimata. Invidunt et dolore at magna dolore dolor. Et voluptua nonumy et sit sed dolor accusam et lorem et dolore kasd sed dolore tincidunt. Facilisis consetetur sit sit vero autem in minim erat. Illum amet accusam amet elitr elitr sanctus dolore vero elitr kasd diam vero dolor. Stet vero sed id duo amet. Nonumy et eos est sit tation gubergren amet. Assum eos sed assum accusam voluptua aliquam amet sanctus amet. Tempor clita nam duis. Eirmod sadipscing kasd volutpat enim duo. Sadipscing no eum luptatum voluptua eirmod at. Eos quod voluptua in lorem et.
+                真，曾经拥有。拥有并不代表珍惜。茫茫中，它已离我远去。夏日中，放慢了生活节奏的我们，寻觅着什么，其实就是寻找生活中的真。
+            </p>
+                     <p class="body">
+               真，如同降临于世界的飞花，又如同那一朵朵白云，可望不可即。其实它需要你的把握，把握住它就拥有了它。
+            </p>
+                     <p class="body">
+                真，又似昙花一现。也许，在那个短暂的时光，你也许是世界上最幸福的天使。因为你曾拥有它。它已让你感受到了没有隔膜的生活的魅力。
+            </p>
+                     <p class="body">
+                真，也就是英文中的true，让世界许多人因它而奔波。虽然人们已经尽力，但将会无济于事。因为工业文明已经玷污了它。
             </p>
         </div>
 <body onload="time(),now()" >
 <div align="center">
 <div align="center" class="D1">
     <h1>加油💪</h1>
-    <h2>现在是：</h2>
+    <h2>现在已经是：</h2>
     <h2 id="now" class="T2"></h2>
-    <h2>距离中考还剩：</h2>
+    <h2>距离中考只剩：</h2>
     <h1 id="time" class="T1"></h1>
 </div>
 </div>
