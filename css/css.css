@@ -11,8 +11,8 @@ ul,li{list-style-type:none;}
 .clearit{clear:both;}
 
 
-.nav { width:980px; margin:0 auto; background: rgba(255,255,255, 0.5 )}
-.dao { width:980px; height:80px; background:#dededc}
+.nav { width:auto; margin:0 auto; background: rgba(255,255,255, 0.5 )}
+.dao { width:auto; height:80px; background:#dededc}
 .logo {width:200px; float:left; text-align:center}
 .dao ul {width:700px; float:left;}
 .dao li {width:210px; float:right; text-align:center; line-height:80px;}
@@ -20,7 +20,7 @@ ul,li{list-style-type:none;}
 .dao div {width:100px; float:left;}
 .ban {text-align:center;}
 .tu img { margin-left:13px;}
-.foot { width:980px; height:50px; background:#dededc; margin-top:10px; text-align:center; line-height:40px; font-size:16px; font-weight:bold}
+.foot { width:auto; height:50px; background:#dededc; margin-top:10px; text-align:center; line-height:40px; font-size:16px; font-weight:bold}
 
 .se {width:800px; margin:0 auto; margin-top:15px;}
 .ss {width:200px; float:left;}
