@@ -16,22 +16,26 @@ body{
 .box.text>*{
     display: inline-block;
     margin: 0;
+
 }
 
 .text.center{
     text-align: center;
+        font-size: 15px;
 }
 
 .box.card{
-    border-radius: 44px;
+    margin-top: 10px;
+    border-radius: 23px;
     /* box-shadow: 5px 5px 10px #0000000f; */
     margin: px;
     background-color: #7f7f7f20;
     padding: px 1px;
+    width: 95%;
 }
 
 .box.card>.tit{
-    font-size: 40px;
+    font-size: 30px;
     line-height: 1.1;
     font-weight: 40
         0;
@@ -43,22 +47,3 @@ body{
     text-align: center;
 }
 
-.grid{
-    width: 100%;
-    display: grid;
-    justify-content: center;
-}
-
-.card-group{
-    display: flex;
-    flex-wrap: wrap;
-    --card-width:300px;
-}
-
-.card-group.center{
-    justify-content: center;
-}
-
-.card-group>.card{
-    width: var(--card-width);
-}
