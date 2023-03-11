@@ -141,30 +141,50 @@
 <body onload="time(),now()" >
 <div align="center">
 <div align="center" class="D1">
-    <h2>现在是北京时间（UTC+8)</h2>
-    <h2 id="now" class="T2"></h2>
+    <h2>现在是北京时间(UTC+8)：</h2>
+    <h2 id="current-time" class="T2"></h2>
     <h2>距离中考只剩：</h2>
     <h1 id="time" class="T1"></h1>
 </div>
 </div>
 <script>
-    let future= new Date(2023,5,18);
-    function  time(){
-        let N =new Date();
-        let d=(future.getTime()-N.getTime())/86400000;
-        let h=(future.getTime()-N.getTime())%86400000/3600000;
-        let m=(future.getTime()-N.getTime())%3600000/60000;
-        let s=(future.getTime()-N.getTime())%60000/1000;
-        document.getElementById("time").innerHTML=d.toFixed(0)+"天"+h.toFixed(0)+"小时"+m.toFixed(0)+"分钟"+s.toFixed(0)+"秒"
+    let currentTime = new Date();
+    
+    function getTime() {
+        fetch('http://worldtimeapi.org/api/timezone/Asia/Shanghai')
+            .then(response => response.json())
+            .then(data => {
+                let datetime = data.datetime;
+                currentTime = new Date(datetime);
+                document.getElementById('current-time').innerHTML = currentTime.toLocaleString();
+                
+                updateTimeDiff();
+            });
     }
-    function now(){
-        let N =new Date();
-        document.getElementById("now").innerHTML=N.getFullYear()+"年"+(N.getMonth()+1)+"月"+N.getDate()+"日"+N.getHours()+":"+
-            N.getMinutes()+":"+N.getSeconds()+"";
-        console.log("aaa");
+    
+    function updateTimeDiff() {
+        let targetTime = new Date(currentTime.getFullYear(), 5, 18); // month is 0-indexed
+        let timeDiff = targetTime - currentTime;
+        if (timeDiff < 0) {
+            targetTime.setFullYear(targetTime.getFullYear() + 1);
+            timeDiff = targetTime - currentTime;
+        }
+        let days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((timeDiff % (1000 * 60)) / (1000));
+        
+        document.getElementById('time').innerHTML =
+            days + " 天 " + hours + " 小时 " + minutes + " 分钟 " + seconds + " 秒";
+            
+        currentTime.setSeconds(currentTime.getSeconds() + 1);
+        
+        document.getElementById('current-time').innerHTML = currentTime.toLocaleString();
     }
-    setInterval(now,1000);
-    setInterval(time,1000);
+
+    getTime();
+    setInterval(getTime, 60000);
+    setInterval(updateTimeDiff, 1000);
 </script>
 <center>
     <details>
